@@ -1,0 +1,63 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <form class="d-flex input-group w-auto">
+      <a class="navbar-brand me-2">
+        <img class="img-responsive" src="assets/images/y-logo.png"
+          style="margin-top: -1px; border-radius: 50%; width: 50px; height: 30px;" id=#nav-logo>
+        <span class='nav-title'>Yumi</span><span class="nav-title-to">to</span>
+      </a>
+    </form>
+    <form class="form-inline my-2 my-lg-0">
+      <a [routerLink]="['/login']" *ngIf="isLoggedIn== false else showLogout"><button type="button"
+          class="btn btn-primary my-2 my-sm-0">Login</button></a>
+      <ng-template #showLogout>
+        <a [routerLink]="['/menu']"><button type="button" class="btn btn-primary my-2 my-sm-0"
+            (click)="logOut()">Logout</button></a>
+      </ng-template>
+      <span>
+        <button class="btn btn-primary m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+          aria-controls="offcanvasExample">
+          About
+        </button>
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+          aria-labelledby="offcanvasExampleLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">who are we?</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <hr />
+          <div class="offcanvas-body">
+            <div>
+              Our technology platform connects customers, restaurant partners and
+              delivery partners, serving their multiple needs. Customers use our platform to search and
+              discover their favourite food items, read and write customer generated reviews, offer various deals on
+              food items,
+              order food delivery and make payments while dining-out at restaurants. We provide high quality food items
+              delivered within short time.
+            </div>
+            <hr />
+            <div class="d-flex flex-wrap">
+              <a routerLink='/menu'><button
+                  class="btn btn-outline-success rounded-pill btn-sm m-2 mx-1">Menu</button></a>
+              <a routerLink='/login' *ngIf="isLoggedIn== false else showLogOut"><button
+                  class="btn btn-outline-warning rounded-pill btn-sm m-2 mx-1">Login</button></a>
+                  <ng-template #showLogOut>
+                    <a [routerLink]="['/menu']"><button
+                      class="btn btn-outline-warning rounded-pill btn-sm m-2 mx-1" (click)="logOut()">Logout</button></a>
+                  </ng-template>
+              <button routerLink='/register'
+                  class="btn btn-outline-dark rounded-pill btn-sm m-2 mx-1" [disabled]="isLoggedIn==true">Signup</button>
+              <a routerLink='/menu'><button
+                  class="btn btn-outline-danger rounded-pill btn-sm m-2 mx-1">Home</button></a>
+            </div>
+          </div>
+        </div>
+      </span>
+    </form>
+
+  </div>
+</nav>
+<div>
+  <router-outlet></router-outlet>
+</div>

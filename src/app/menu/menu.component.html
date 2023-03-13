@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav" *ngFor="let m of listOfItems">
+        <a class="nav-link" href=#{{m.category}}>{{m.category}}</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- {{loginService.getAddress()}} -->
+<div class="menu" >
+  <div *ngFor="let option of listOfItems">
+    <div class="row">
+      <div class="col-md-2" ></div>
+      <div class="col-md-8" >
+        <h4> <label id={{option.category}}>{{option.category}}</label></h4>
+        <div *ngFor="let item of option.items">
+          <div class="card" >
+            <div class="card-body h-100">
+              <div class="row">
+                <div class="col-md-8" >
+                  <h5 class="card-title">{{item.itemName}}</h5>
+                  <div class="dot-green" *ngIf="item.vegan==='veg'">
+                  </div>
+                  <div class="dot-yellow" *ngIf="item.vegan==='egg'">
+                  </div>
+                  <div class="dot-red" *ngIf="item.vegan==='Non veg'">
+                  </div>
+                  <span> | {{item.vegan}}</span>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                  </h6>
+                  <p class="card-text">{{item.price | currency:'INR'}}</p>
+                  <a class="btn btn-outline-warning"
+                    (click)="addToCart(item.id,item.itemName,item.price,item.quantity)">Add to
+                    Cart</a>
+                </div>
+                <div class="col-md-4"> <img src={{item.img}} style="width: 80%; height: 75%;"></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="absolute-order">
+  <div class="container-fluid text-light order-background">
+    <div class="container">
+      <div class="row g-0">
+        <div class="col text-left text-md-start">
+          <p class="mb-md-0 text-black"><a [routerLink]="['/checkout']">
+              <i class="fa-solid fa-angles-up"></i>
+            </a></p>
+        </div>
+        <div class="col text-center text-md-start">
+          <p class="mb-md-0 text-black">
+            Your Order({{count}})</p>
+        </div>
+        <div class="col-md-4 text-center text-md-end">
+          <p class="mb-1 text-black">Sub Total : {{subTotal| currency:'INR':true}}<br></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+
+

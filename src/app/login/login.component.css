@@ -1,0 +1,30 @@
+.form-box1 {
+    width: 400px;
+    height: auto;
+    padding: 25px;
+    /* background-color: rgb(218, 182, 172); */
+    /* background-color:white; */
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    backdrop-filter: blur(100px);
+    border-radius: 20px;
+    color: black;
+}
+
+.bgPic {
+    background-image: url('../../assets/images/restaurant.jpg');
+    height: 100vh;
+    width: 100vw;
+    background-size: 100%;
+}
+.password-input {
+    position: relative;
+  }
+  .eye-icon {
+    position: absolute;
+    padding-left: 85%;
+    top: 50%;
+    transform: translateY(-50%);
+  }

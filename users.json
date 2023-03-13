@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "mail": "abc@gmail.com",
+      "psd": "123",
+      "addr": "anjani-baba,546,guty",
+      "IsLoggedIn": true,
+      "id": 1
+    },
+    {
+      "mail": "123@gmail.com",
+      "psd": "456",
+      "addr": "markoni-damishu",
+      "id": 2,
+      "IsLoggedIn": false
+    },
+    {
+      "mail": "rhw@gmail.com",
+      "address": "dbnasv",
+      "password": "567",
+      "IsLoggedIn": false,
+      "id": 3
+    },
+    {
+      "mail": "harini11@gmail.com",
+      "address": "Sr layout,Coimbatore",
+      "password": "India@aspire11",
+      "IsLoggedIn": false,
+      "id": 5
+    },
+    {
+      "mail": "harini26@gmail.com",
+      "addr": "Udumalpet",
+      "psd": "India@aspire22",
+      "IsLoggedIn": false,
+      "id": 6
+    },
+    {
+      "mail": "priiya19@gmail.com",
+      "addr": "Udumalpet",
+      "psd": "India@aspire11",
+      "IsLoggedIn": false,
+      "id": 7
+    }
+  ]
+}

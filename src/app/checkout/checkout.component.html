@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="isLoggedIn==true" class="d-flex align-items-center">
+    <img class="rounded float-left"
+        src="https://assetcdn.pickupp.io/prime/8a01a8893881250a47cee80100a73ff5ac5bd4fe_Ramadan-Food-Delivery.jpg"
+        alt=""/>
+    <div class="row" *ngIf="allItems.length>0 else CheckoutMessage">
+        <div class="d-flex flex-column">
+            <h2 class=" text-primary fw-400 text-center d-flex justify-content-center">
+                "Thanks For Your Order. We will reach you soon with your delicious food!"</h2>
+        </div>
+        <div class="container">
+            <div class="border">
+                <h3>Order Details</h3>
+                <div class="row">
+                    <div class="col-md-6">Status:</div>
+                    <div class="col-md-6">Delivery Pending</div>
+                    <div class="col-md-6">Payment Mode:</div>
+                    <div class="col-md-6">Cash</div>
+                    <div class="col-md-6">Order Time:</div>
+                    <div class="col-md-6">{{orderedTime.toLocaleString()}}</div>
+                    <div class="col-md-6">Delivery To:</div>
+                    <div class="col-md-6">{{address}}</div>
+                </div>
+                <br>
+                <br>
+                <h3>Order Summary</h3>
+                <div>
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Item Price</th>
+                                <th>Quantity</th>
+                                <th>Amount</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let i of allItems">
+                                <td>{{i.productName}}</td>
+                                <td>{{i.productPrice| currency:'INR':true}}</td>
+                                <td>{{i.productQuantity}}</td>
+                                <td>{{i.productPrice*i.productQuantity| currency:'INR':true}}</td>
+                                <td><button><i class="fa-solid fa-plus" (click)="increaseItem(i.productId)"></i></button></td>
+                                <td><button><i class="fa-solid fa-minus" (click)="reduceItem(i.productId)"></i></button></td>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="border">
+                    <div class="row">
+                        <div class="col-md-8">SubTotal</div>
+                        <div class="col-md-4">{{subTotal| currency:'INR':true}}</div>
+                        <div class="col-md-8">Delivery Charges</div>
+                        <div class="col-md-4">{{ deliveryCharge | currency:'INR':true}}</div>
+                        <div class="col-md-8">Total</div>
+                        <div class="col-md-2">{{subTotal+deliveryCharge | currency:'INR':true}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <button type="button" class="btn btn-outline-success m-4 " (click)="back()">Back</button>
+        </div>
+    </div>
+</div>
+<ng-template #CheckoutMessage>
+    <div class="d-flex flex-column">
+        <h2 class=" text-primary fw-400 text-center d-flex justify-content-center">
+            "Please select food items to Checkout!"</h2>
+    </div>
+    <div style="text-align: center;">
+        <button type="button" class="btn btn-outline-success m-4 " (click)="back()">Back</button>
+    </div>
+</ng-template>
+<app-footer></app-footer>
